@@ -60,7 +60,7 @@ mongoose.connect('mongodb://localhost/mongoose_basics', { useNewUrlParser: true,
       .exec(function (err, books) {
          if (err) throw err;
 
-         console.log(books);
+         console.log("Books: "+books);
       });
 
    Author.findById('5fc122e349f28b05ef5046b9', function (err, author) {
@@ -75,10 +75,16 @@ mongoose.connect('mongodb://localhost/mongoose_basics', { useNewUrlParser: true,
       });
    });
 
-   Author.findByIdAndUpdate('59b31406beefa1082819e72f', { linkedin: 'https://www.linkedin.com/in/jamie-munro-8064ba1a/' }, function (err, author) {
+   Author.findByIdAndUpdate('5fc122e349f28b05ef5046b9', { linkedin: 'https://www.linkedin.com/in/jamie-munro-8064ba1a/' }, function (err, author) {
       if (err) throw err;
 
-      console.log(author);
+      console.log("Author: "+author);
+   });
+
+   Author.find(function (err, authors) {
+      if (err) throw err;
+
+      console.log("Find all Authors: "+authors);
    });
 
 });
